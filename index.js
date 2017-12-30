@@ -13,8 +13,8 @@ const pipeline = [
     $project: { documentKey: false }
   }
 ];
-
-MongoClient.connect("mongodb://localhost:27017,localhost:27018,localhost:27019?replicaSet=mongo-repl")
+const MDBURL = process.env.MONGODBURL;
+MongoClient.connect(MDBURL)
   .then(client => {
     console.log("Connected correctly to server");
     // specify db and collections
